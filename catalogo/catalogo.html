@@ -91,7 +91,7 @@
             if (activeImage) {
                 const profileIcon = document.querySelector('.profile-icon');
                 if (profileIcon) {
-                    profileIcon.src = activeImage;
+                    profileIcon.src = '../' + activeImage; // Ajusta o caminho relativo à pasta catalogo
                 }
             }
         });

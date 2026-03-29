@@ -39,7 +39,7 @@ function storeActiveProfile(event) {
     const link = event.currentTarget;
     const img = link.querySelector('img');
     const name = link.querySelector('p').textContent;
-    const imageSrc = img.src;
+    const imageSrc = img.getAttribute('src'); // Usa getAttribute para obter o caminho relativo
 
     localStorage.setItem('activeProfileName', name);
     localStorage.setItem('activeProfileImage', imageSrc);
