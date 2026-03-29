@@ -1,0 +1,186 @@
+/* Estilos inspirados na Netflix para a página de seleção de perfis */
+
+/* Variáveis CSS para dark mode (padrão) */
+:root {
+    --bg-color: #222121; /* Cor de fundo escura */
+    --text-color: #fff; /* Cor do texto branca */
+    --border-hover-color: #e50914; /* Cor da borda no hover (vermelho Netflix) */
+    --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Família de fontes */
+}
+
+/* Variáveis para light mode */
+.light-mode {
+    --bg-color: #fff; /* Cor de fundo clara */
+    --text-color: #000; /* Cor do texto preta */
+    --border-hover-color: #e50914; /* Mantém a cor da borda */
+}
+
+body {
+    background-color: var(--bg-color); /* Usa variável para cor de fundo */
+    color: var(--text-color); /* Usa variável para cor do texto */
+    font-family: var(--font-family); /* Usa variável para família de fontes */
+    margin: 0; /* Remove margens externas */
+    padding: 0; /* Remove preenchimento interno */
+    height: 100vh; /* Define a altura como 100% da altura da viewport */
+    display: flex; /* Usa flexbox para layout */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para mudança de modo */
+}
+
+#mode-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: 0.3s ease, color 0.3s ease;
+    backdrop-filter: none;
+}
+
+.light-mode #mode-toggle {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+#mode-toggle:hover {
+    background-color: rgba(229, 9, 20, 0.85);
+    color: #fff;
+}
+
+.main {
+    text-align: center; /* Alinha o texto ao centro */
+    max-width: 1200px; /* Define largura máxima */
+    width: 100%; /* Largura total disponível */
+    padding: 20px; /* Adiciona preenchimento interno */
+}
+
+.main h1 {
+    font-size: 3rem; /* Define o tamanho da fonte */
+    margin-bottom: 2rem; /* Margem inferior */
+    font-weight: 400; /* Peso da fonte */
+}
+
+.container {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove preenchimento */
+    margin: 0; /* Remove margens */
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 2rem; /* Espaçamento entre itens */
+    flex-wrap: wrap; /* Permite quebra de linha */
+}
+
+.profile {
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Direção vertical */
+    align-items: center; /* Alinha itens ao centro */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: transform 0.3s ease; /* Transição suave para transformações */
+}
+
+.profile:hover {
+    transform: scale(1.15); /* Aumenta o tamanho no hover */
+}
+
+.profile img {
+    width: 170px; /* Largura da imagem */
+    height: 170px; /* Altura da imagem */
+    border-radius: 50%; /* Bordas arredondadas para círculo */
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    border: 2px solid transparent; /* Borda transparente */
+    transition: border-color 0.3s ease; /* Transição para cor da borda */
+}
+
+.profile:hover img {
+    border-color: #e50914; /* Cor da borda no hover (vermelho Netflix) */
+}
+
+.profile p {
+    margin-top: 1rem; /* Margem superior */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    font-weight: 300; /* Peso da fonte */
+}
+
+/* Responsividade para diferentes dispositivos */
+
+/* Tablets e desktops grandes */
+@media (min-width: 1024px) {
+    .main h1 {
+        font-size: 4rem; /* Tamanho maior da fonte */
+        margin-bottom: 3rem; /* Margem inferior maior */
+    }
+    .profile img {
+        width: 200px; /* Largura maior */
+        height: 200px; /* Altura maior */
+    }
+    .container ol {
+        gap: 3rem; /* Espaçamento maior */
+    }
+    .profile p {
+        font-size: 1.5rem; /* Tamanho maior da fonte */
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .main h1 {
+        font-size: 3.5rem; /* Tamanho médio da fonte */
+        margin-bottom: 2.5rem; /* Margem inferior média */
+    }
+    .profile img {
+        width: 180px; /* Largura média */
+        height: 180px; /* Altura média */
+    }
+    .container ol {
+        gap: 2.5rem; /* Espaçamento médio */
+    }
+    .profile p {
+        font-size: 1.3rem;
+    }
+}
+
+/* Dispositivos móveis grandes (ex: iPhone 6/7/8 Plus) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .main h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    .profile img {
+        width: 160px;
+        height: 160px;
+    }
+    .container ol {
+        gap: 1.5rem;
+    }
+    .profile p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Dispositivos móveis pequenos */
+@media (max-width: 479px) {
+    .main h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+    .container ol {
+        gap: 1rem;
+        flex-direction: column;
+    }
+    .profile p {
+        font-size: 1rem;
+    }
+}
